@@ -9,6 +9,7 @@ pipeline{
 					credentialsId: '8341fc18-c98d-4e01-961a-902890af7960'
 				)
 			}
+		}
 		stage('install dependencies'){
 			steps{
 				sh 'pip install -r requirements.txt'
@@ -32,4 +33,3 @@ pipeline{
 		}
 		}
 	}
-}
