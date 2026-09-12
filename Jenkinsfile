@@ -17,16 +17,16 @@ pipeline{
 		}
 		stage('build'){
 			steps{
-				sh 'docker build -t assignment-10-jenkins .'
-				sh 'docker tag assignment-10-jenkins:latest '
+				sh 'docker build -t assignment-10-jenkins:latest .'
+				sh 'docker tag assignment-10-jenkins:latest binitmaharjan/assignment-10-jenkins:latest'
 			}
 		}
 		stage('push'){
 			steps{
-				withcredentials([usernamePassword(credentialsId:'5f36b2c6-26a6-4811-ac9e-766ad2c7117c',usernameVariable:'USERNAME',passwordVariable:'PASSWORD')]){
+				withCredentials([usernamePassword(credentialsId:'5f36b2c6-26a6-4811-ac9e-766ad2c7117c',usernameVariable:'USERNAME',passwordVariable:'PASSWORD')]){
 					sh ''' 
 						echo $PASSWORD | docker login -u $USERNAME --password-stdin
-						docker push assignment-10-jenkins:latest				
+						docker push binitmaharjan/assignment-10-jenkins:latest
 					'''
 				}
 			}
