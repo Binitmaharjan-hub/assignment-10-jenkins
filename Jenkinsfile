@@ -38,6 +38,7 @@ pipeline{
 		stage('verify'){
 			steps{
 				sh 'docker run -d --name assignment-test -p 5000:5000 assignment-10-jenkins:latest'
+				sh 'sleep 5'
 				sh 'curl https://localhost:5000/fact'
 			}
 		}
