@@ -47,7 +47,7 @@ pipeline{
 			steps{
 				sh 'docker logout'
 				sh 'docker rmi assignment-10-jenkins:latest'
-				sh 'docker rmi binitmaharjan/assignment-10-jenkins:latest'
+				sh 'docker rmi -f binitmaharjan/assignment-10-jenkins:latest'
 		}
 	}
 	}
