@@ -35,5 +35,15 @@ pipeline{
 				}
 			}
 		}
+		stage('verify'){
+			steps{
+				sh 'curl https://localhost:5000/fact'
+			}
+		}
+		stage('cleanup'){
+			steps{
+				sh 'docker logout'
+				sh 'docker rmi assignment-10-jenkins:latest'
+				sh 'docker rmi binitmaharjan/assignment-10-jenkins:latest'
 		}
 	}
