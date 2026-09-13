@@ -47,3 +47,5 @@ pipeline{
 				sh 'docker rmi binitmaharjan/assignment-10-jenkins:latest'
 		}
 	}
+	}
+}
